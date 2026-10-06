@@ -17,6 +17,12 @@ if git ls-files | grep -Eq '(^|/)\.env$'; then
 else
   echo "[OK] aucun .env suivi"
 fi
+if [[ -n "$(git status --porcelain)" ]]; then
+  echo "[ERREUR] des modifications non validées sont présentes" >&2
+  errors=$((errors + 1))
+else
+  echo "[OK] dépôt propre"
+fi
 if [[ $errors -gt 0 ]]; then
   echo "[ECHEC] $errors erreur(s)" >&2
   exit 1
