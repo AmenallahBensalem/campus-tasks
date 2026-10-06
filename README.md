@@ -9,4 +9,8 @@ Projet utilise dans les ateliers DevOps.
 Point prevu : GET /health
 
 ## Support
-Contact : equipe-b@example.invalid
+
+
+Contact équipe A : equipe-a@example.invalid
+Contact équipe B : equipe-b@example.invalid
+
