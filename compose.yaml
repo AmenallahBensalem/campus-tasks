@@ -16,14 +16,6 @@ services:
       POSTGRES_DB: campus
       POSTGRES_USER: campus
       POSTGRES_PASSWORD: dev-password
-        adminer:
-    image: adminer
-    ports:
-      - "8081:8080"
-    depends_on:
-      - db
-    profiles:
-      - debug
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
@@ -31,6 +23,15 @@ services:
       interval: 5s
       timeout: 3s
       retries: 10
+
+  adminer:
+    image: adminer
+    ports:
+      - "8081:8080"
+    depends_on:
+      - db
+    profiles:
+      - debug
 
 volumes:
   pgdata:
