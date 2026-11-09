@@ -24,9 +24,6 @@ jobs:
           python-version: ${{ matrix.python }}
           cache: pip
       - run: pip install -r requirements-dev.txt
-      - name: Echec volontaire sur 3.11
-        if: matrix.python == '3.11'
-        run: exit 1
       - run: pytest -q
       - name: Rapport de tests
         run: pytest --junitxml=report.xml
